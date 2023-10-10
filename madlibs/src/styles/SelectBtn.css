@@ -1,0 +1,20 @@
+.SelectBtn {
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 5px;
+  padding: 5px 10px;
+  transition: all 0.1s ease-in-out;
+}
+
+.SelectBtn:hover {
+  background-color: #eee;
+  border-color: #fff;
+}
+
+.SelectBtn:active {
+  box-shadow: inset 5px 5px 5px #ccc;
+}

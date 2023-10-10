@@ -1,5 +1,11 @@
+import "../styles/SelectBtn.css";
 const SelectBtn = ({ onClick }) => (
-  <button className="SelectBtn" type="submit" onClick={onClick}>
+  <button
+    className="SelectBtn
+    mb-1 "
+    type="submit"
+    onClick={onClick}
+  >
     Select
   </button>
 );

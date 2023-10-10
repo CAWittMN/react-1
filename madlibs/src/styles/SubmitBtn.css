@@ -1,0 +1,22 @@
+.SubmitBtn {
+  background-color: #90d092;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 10px;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.SubmitBtn:hover {
+  background-color: #6db66f;
+}
+
+.SubmitBtn:active {
+  background-color: #3e8e41;
+  box-shadow: inset 5px 5px 7px #666;
+}

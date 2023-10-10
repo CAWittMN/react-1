@@ -1,8 +1,8 @@
 import SelectBtn from "./SelectBtn";
 import { useState } from "react";
-import { findStory } from "../helpers";
+import "../styles/StorySelect.css";
 
-const StorySelect = ({ stories, setStory }) => {
+const StorySelect = ({ stories, setStory, findStory }) => {
   const [formData, setFormData] = useState(1);
 
   const handleChange = (e) => {
@@ -27,7 +27,9 @@ const StorySelect = ({ stories, setStory }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <select onChange={handleChange}>{options}</select>
+        <select className="StorySelect-menu" onChange={handleChange}>
+          {options}
+        </select>
         <SelectBtn onClick={handleSubmit} />
       </form>
     </div>

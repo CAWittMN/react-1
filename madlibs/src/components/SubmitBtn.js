@@ -1,7 +1,9 @@
+import "../styles/SubmitBtn.css";
+
 const SubmitBtn = ({ handleSubmit }) => {
   return (
     <>
-      <button type="submit" onClick={handleSubmit}>
+      <button className="SubmitBtn" type="submit" onClick={handleSubmit}>
         Submit
       </button>
     </>

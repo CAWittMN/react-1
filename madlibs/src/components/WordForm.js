@@ -1,25 +1,39 @@
 import { useState } from "react";
 import WordInput from "./WordInput";
 import SubmitBtn from "./SubmitBtn";
-import { findWords } from "../helpers";
+import "../styles/WordForm.css";
 
-const WordForm = ({ story, setAnswers }) => {
-  const [formData, setFormData] = useState({});
+const WordForm = ({ story, setAnswers, findWords }) => {
+  const [wordFormData, setWordFormData] = useState({});
+  const words = findWords(story);
 
-  const handleChange = (e) => {
+  const handleWordChange = (e) => {
     const { name, value } = e.target;
-    setFormData(() => ({
-      ...formData,
+    setWordFormData(() => ({
+      ...wordFormData,
       [name]: value,
     }));
+    console.log(wordFormData);
   };
 
-  const handleSubmit = (e) => {
+  const handleWordSubmit = (e) => {
     e.preventDefault();
-    setAnswers(formData);
+    setAnswers(wordFormData);
   };
 
-  const words = findWords(story);
+  const isFormFilled = () => {
+    const values = Object.values(wordFormData);
+    if (values.includes("")) {
+      return false;
+    } else if (values.length === 0) {
+      return false;
+    } else if (values.length !== words.length) {
+      return false;
+    }
+    return true;
+  };
+
+  console.log(isFormFilled());
 
   const inputs = words.map((word, idx) => {
     return (
@@ -28,17 +42,15 @@ const WordForm = ({ story, setAnswers }) => {
         label={word}
         name={`${idx}-${word}`}
         placeholder={word}
-        handleChange={handleChange}
+        handleChange={handleWordChange}
       />
     );
   });
 
   return (
-    <form className="WordForm" onSubmit={handleSubmit}>
+    <form className="WordForm" onSubmit={handleWordSubmit}>
       {inputs}
-      {Object.keys(formData).length === words.length && (
-        <SubmitBtn handleSubmit={handleSubmit} />
-      )}
+      {isFormFilled() && <SubmitBtn handleSubmit={handleWordSubmit} />}
     </form>
   );
 };

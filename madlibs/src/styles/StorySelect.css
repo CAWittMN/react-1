@@ -1,0 +1,13 @@
+.StorySelect-menu {
+  height: 2em;
+  border: none;
+  background-color: rgb(206, 221, 234);
+}
+
+.StorySelect-menu:hover {
+  background-color: #cee7f7;
+}
+
+.StorySelect-menu:focus {
+  outline: none;
+}
