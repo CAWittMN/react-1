@@ -1,4 +1,6 @@
-//finds the story with the given id with the binary search algorithm
+/**
+ * finds the story with the given id with the binary search algorithm
+ */
 const findStory = (stories, id) => {
   let start = 1;
   let end = stories.length;
@@ -7,13 +9,10 @@ const findStory = (stories, id) => {
     const midStory = stories[mid - 1];
     if (id < midStory.id) {
       end = mid - 1;
-      console.log(`new end: ${end}`);
     } else {
-      console.log(`new start: ${start} because ${id} > ${midStory.id}`);
       start = mid + 1;
     }
     mid = Math.floor((start + end) / 2);
-    console.log(`new mid: ${mid}`);
   }
   if (stories[mid - 1].id === id) {
     return stories[mid - 1];
@@ -36,7 +35,7 @@ const findWords = (story) => {
 };
 
 /**
- * inserts the answers into the story and returns it the new story
+ * inserts the answers into the story and returns a new story
  */
 const insertWords = (story, answers) => {
   let newStory = story.text;

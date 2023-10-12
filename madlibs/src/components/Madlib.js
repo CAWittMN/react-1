@@ -22,17 +22,13 @@ const Madlib = () => {
       {story ? (
         <>
           <ResetBtn onClick={handleReset} />
-          <WordForm
-            story={story}
-            findWords={findWords}
-            setAnswers={setAnswers}
-          />
+          <WordForm words={findWords(story)} onSubmit={setAnswers} />
         </>
       ) : (
         <StorySelect
           stories={stories}
+          onSubmit={setStory}
           findStory={findStory}
-          setStory={setStory}
         />
       )}
       {answers && (

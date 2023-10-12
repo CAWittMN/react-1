@@ -2,7 +2,7 @@ import SelectBtn from "./SelectBtn";
 import { useState } from "react";
 import "../styles/StorySelect.css";
 
-const StorySelect = ({ stories, setStory, findStory }) => {
+const StorySelect = ({ stories, onSubmit, findStory }) => {
   const [formData, setFormData] = useState(1);
 
   const handleChange = (e) => {
@@ -13,7 +13,7 @@ const StorySelect = ({ stories, setStory, findStory }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const story = findStory(stories, formData);
-    setStory(story);
+    onSubmit(story);
   };
 
   const options = stories.map((story) => {
